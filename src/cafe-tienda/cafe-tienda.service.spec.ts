@@ -55,7 +55,7 @@ describe('CafeTiendaService', () => {
       cafes: [],
     })
 
-    const result: TiendaEntity = await service.addCafeTienda(newTienda.id, newcafe.id);
+    const result: TiendaEntity = await service.addCafetoTienda(newTienda.id, newcafe.id);
     
     expect(result.cafes.length).toBe(1);
     expect(result.cafes[0]).not.toBeNull();
@@ -74,7 +74,7 @@ describe('CafeTiendaService', () => {
       cafes: [],
     })
 
-    await expect(() => service.addCafeTienda(newTienda.id, 1)).rejects.toHaveProperty("message", "The cafe with the given id was not found");
+    await expect(() => service.addCafetoTienda(newTienda.id, 1)).rejects.toHaveProperty("message", "The cafe with the given id was not found");
   });
 
   it('addCafeTienda should throw an exception for an invalid tienda', async () => {
@@ -86,6 +86,6 @@ describe('CafeTiendaService', () => {
       tiendas : [],
     });
 
-    await expect(() => service.addCafeTienda(2, newcafe.id)).rejects.toHaveProperty("message", "The tienda with the given id was not found")
+    await expect(() => service.addCafetoTienda(2, newcafe.id)).rejects.toHaveProperty("message", "The tienda with the given id was not found")
   })
 });

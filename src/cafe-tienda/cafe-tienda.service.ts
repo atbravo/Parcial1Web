@@ -15,7 +15,7 @@ export class CafeTiendaService {
         private readonly tiendaRepository: Repository<TiendaEntity>
     ) {}
 
-    async addCafeTienda(tiendaId: number, cafeId: number): Promise<TiendaEntity> {
+    async addCafetoTienda(tiendaId: number, cafeId: number): Promise<TiendaEntity> {
         const cafe: CafeEntity = await this.cafeRepository.findOne({where: {id: cafeId}});
         if (!cafe)
           throw new BusinessLogicException("The cafe with the given id was not found", BusinessError.NOT_FOUND);
